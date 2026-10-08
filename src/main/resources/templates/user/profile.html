@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi perfil</title>
+</head>
+<body>
+<h2 th:text="${principal}"></h2>
+
+<ol>
+    <li th:each="authority : ${authorities}" th:text="${authority.authority}"></li>
+</ol>
+
+</body>
+</html>
