@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private UserRoleRepository userRoleRepository;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -36,6 +37,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User save(User user) {
+        String hashedPass = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPass);
         return userRepository.save(user);
     }
 

@@ -16,7 +16,6 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    @PreAuthorize("hasAuthority('READ_USER')")
     public String listUsers(Model model) {
         model.addAttribute("users", userService.findAll());
         return "user/index";
@@ -41,9 +40,15 @@ public class UserController {
     }
 
     @PostMapping("/{id}/delete")
-    @PreAuthorize("hasAuthority('DELETE_USER')")
     public String deleteUser(@PathVariable Integer id) {
         userService.deleteById(id);
         return "redirect:/user";
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "user/login";
+    }
+
+
 }
