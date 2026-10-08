@@ -41,4 +41,9 @@ public class PermissionServiceImpl implements PermissionService {
         permissionRepository.deleteById(id);
         rolePermissionRepository.deleteByPermission_Id(id);
     }
+
+    @Override
+    public List<Permission> findByUsername(String username) {
+        return permissionRepository.findDistinctByRolePermissions_Role_UserRoles_User_Username(username);
+    }
 }

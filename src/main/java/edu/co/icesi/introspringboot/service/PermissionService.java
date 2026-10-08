@@ -15,4 +15,6 @@ public interface PermissionService {
 
     void deleteById(Integer id);
 
+    List<Permission> findByUsername(String username);
+
 }

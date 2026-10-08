@@ -46,12 +46,14 @@ INSERT INTO permission (name) VALUES ('CREATE_COURSE');     -- 13
 INSERT INTO permission (name) VALUES ('READ_COURSE');       -- 14
 INSERT INTO permission (name) VALUES ('UPDATE_COURSE');     -- 15
 INSERT INTO permission (name) VALUES ('DELETE_COURSE');     -- 16
+INSERT INTO permission (name) VALUES ('READ_USER');         -- 17
+INSERT INTO permission (name) VALUES ('DELETE_USER');       -- 18
 
 -- ─── ROLES ───────────────────────────────────────────────────────────────────
 INSERT INTO role (name) VALUES ('ADMIN');    -- 1
 INSERT INTO role (name) VALUES ('DIRECTOR'); -- 2
 
--- ─── ADMIN: todos los permisos (1 – 16) ──────────────────────────────────────
+-- ─── ADMIN: todos los permisos (1 – 18) ──────────────────────────────────────
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 1);
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 2);
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 3);
@@ -68,6 +70,8 @@ INSERT INTO role_permission (role_id, permission_id) VALUES (1, 13);
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 14);
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 15);
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 16);
+INSERT INTO role_permission (role_id, permission_id) VALUES (1, 17); -- READ_USER
+INSERT INTO role_permission (role_id, permission_id) VALUES (1, 18); -- DELETE_USER
 
 -- ─── DIRECTOR: leer todo + CRUD completo de Enrollment ───────────────────────
 --   READ de todas las tablas
