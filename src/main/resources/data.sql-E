@@ -50,8 +50,8 @@ INSERT INTO permission (name) VALUES ('READ_USER');         -- 17
 INSERT INTO permission (name) VALUES ('DELETE_USER');       -- 18
 
 -- ─── ROLES ───────────────────────────────────────────────────────────────────
-INSERT INTO role (name) VALUES ('ROLE_ADMIN');    -- 1
-INSERT INTO role (name) VALUES ('ROLE_DIRECTOR'); -- 2
+INSERT INTO role (name) VALUES ('ADMIN');    -- 1
+INSERT INTO role (name) VALUES ('DIRECTOR'); -- 2
 
 -- ─── ADMIN: todos los permisos (1 – 18) ──────────────────────────────────────
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 1);
@@ -234,7 +234,7 @@ INSERT INTO student_course (student_id, course_id) VALUES (8, 53);  -- Juan Pabl
 INSERT INTO student_course (student_id, course_id) VALUES (14, 53); -- Nicolas Vargas + Trabajo de Grado
 
 -- ─── ROL ADICIONAL (para navegacion anidada Role→Permission y User→Role) ────
-INSERT INTO role (name) VALUES ('ROLE_PROFESSOR'); -- id 3
+INSERT INTO role (name) VALUES ('PROFESSOR'); -- id 3
 INSERT INTO role_permission (role_id, permission_id) VALUES (3, 2);  -- READ_STUDENT
 INSERT INTO role_permission (role_id, permission_id) VALUES (3, 14); -- READ_COURSE
 INSERT INTO role_permission (role_id, permission_id) VALUES (3, 15); -- UPDATE_COURSE
@@ -247,7 +247,7 @@ INSERT INTO user_role (user_id, role_id) VALUES (7, 3); -- luis  → PROFESSOR
 INSERT INTO user_role (user_id, role_id) VALUES (3, 3); -- ana ya es DIRECTOR; ahora tambien PROFESSOR (usuario con 2 roles)
 
 -- ─── ROL ESTUDIANTE (id 4) ──────────────────────────────────────────────────
-INSERT INTO role (name) VALUES ('ROLE_STUDENT'); -- id 4
+INSERT INTO role (name) VALUES ('STUDENT'); -- id 4
 INSERT INTO role_permission (role_id, permission_id) VALUES (4, 6);  -- READ_PROFESSOR
 INSERT INTO role_permission (role_id, permission_id) VALUES (4, 14); -- READ_COURSE
 INSERT INTO role_permission (role_id, permission_id) VALUES (4, 9);  -- CREATE_ENROLLMENT
