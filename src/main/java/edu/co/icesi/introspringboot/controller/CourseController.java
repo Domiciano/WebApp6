@@ -14,7 +14,7 @@ import java.util.List;
 
 //Thymeleaf
 @Controller
-@RequestMapping("/course")
+@RequestMapping("/courses")
 public class CourseController {
 
 
@@ -25,7 +25,7 @@ public class CourseController {
     @Autowired
     private ProfessorService professorService;
 
-    @GetMapping("/")
+    @GetMapping
     public String index(Model model) {
         //Inyeccion de la información
         model.addAttribute(
