@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                                 .anyRequest().authenticated()
                 ).formLogin(login -> login
                         .loginPage("/user/login")
-                        .defaultSuccessUrl("/home", true)
+                        .defaultSuccessUrl("/profile/me", true)
                         .permitAll()
                 );
         return http.build();

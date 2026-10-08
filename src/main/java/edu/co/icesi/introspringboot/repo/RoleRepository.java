@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer> {
     List<Role> findByNameContainingIgnoreCase(String name);
+    List<Role> findByUserRoles_User_Username(String username);
 }

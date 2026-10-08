@@ -5,6 +5,7 @@ import edu.co.icesi.introspringboot.repo.UserRepository;
 import edu.co.icesi.introspringboot.repo.UserRoleRepository;
 import edu.co.icesi.introspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,6 +45,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('DELETE_USER')")
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
         userRoleRepository.deleteByUser_Id(id);
